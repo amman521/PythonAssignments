@@ -167,7 +167,9 @@ Answer-> A list is a collection of elements separated by commas and enclosed wit
 Q35. How can you create a list in Python?
 Answer-> list1 = [20,30,40,50,"iNeuron"]
                
-
-
+Q36. How can we access the elements in a list?
+Answer- > We can access the element by their indexing.
+            
+               
 
 
