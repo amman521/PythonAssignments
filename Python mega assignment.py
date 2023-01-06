@@ -373,43 +373,267 @@ Answer-> def Isprime(num):
         print(num,"is a prime")
 Isprime(5) 
 
+Q80. Write a Python program to check Armstrong Number.
+ Answer->              
+def check_armstrong(num):
+    sum = 0
+    temp = num
+    while temp > 0:
+        digit = temp % 10
+        sum +=digit ** 3
+        temp //=10
+    if num == sum:
+        print(num,"is a armstrong number")    
+    else:
+        print(num,"is not a armstrong number")
+check_armstrong(153) 
 
+Q81. Write a Python program to find the n-th Fibonacci Number.
+ Answer->              
+def Fibonacci(number):
+    if number <= 2:
+        return number - 1
+    else:
+        return Fibonacci(number -1) + Fibonacci(number-2)
+print(Fibonacci(8))                
 
+Q82. Write a Python program to interchange the first and last element in a list.
+Answer->               
+def InterChange(changeList):
+    changeList[0],changeList[-1] = changeList[-1],changeList[0]
+    return changeList
+print(InterChange([12,35,9,56,24]))
 
+Q83. Write a Python program to swap two elements in a list.
+ Answer->              
+def swapProgram(list,position1,position2):
+    list[position1],list[position2] = list[position2],list[position1]
+    return list
+    
+list = [20,30,40,50]
+position1,position2 = 1,2
+print(swapProgram(list, position1-1, position2-1))   
 
+Q84. Write a Python program to find N largest element from a list.
+Answer->
+def n_max_elements(list1, N):
+	final_list = []
 
+	for i in range(0, N):
+		max1 = 0
+		
+		for j in range(len(list1)):	
+			if list1[j] > max1:
+				max1 = list1[j]
+				
+		list1.remove(max1)
+		final_list.append(max1)
+		
+	print(final_list)
 
+list1 = [2, 6, 41, 85, 0, 3, 7, 6, 10]
+N = 2
 
+n_max_elements(list1, N)
 
+Q85. Write a Python program to find cumulative sum of a list.
+Answer->
+def sumList(lists):
+    sum = 0
+    for i in lists:
+        sum += i
+        print(sum)
+lists=[10,20,30,40]
+sumList(lists)
 
+Q86. Write a Python program to check if a string is palindrome or not.
+Answer->
+def isPalindrome(name):
+    if name == name[::-1]:
+        print("The String is a palindrome")
+    else:
+        print("The String isn't a palindrome")    
+isPalindrome("PHP") 
+ 
+Q87. Write a Python program to remove i'th element from a string.               
+Answer->
+def removeElement(i):
+  str1 = "Big Data Bootcamp"
+  str2 = ""
 
+  for n in range(len(str1)):
+    if n == i:
+      continue
+    else:
+      str2 = str2 + str1[n]
 
+  return str2
 
+print(removeElement(1))
 
+Q88. Write a Python program to check if a substring is present in a given string.
+Answer->
+def check_String(string):
+    if "message" in string:
+        print(string,"Yes Present")
+    else:
+        print(string,"No its not present")
+check_String("Hello message")
 
+Q89. Write a Python program to find words which are greater than given length k.
+Answer->
+def word_k(k, s):    
+    word = s.split(" ")
+    for x in word:
+        if len(x)>k:
+          print(x)
+k = 3
+s ="Python is good to learn"
+word_k(k, s)
+Q90. Write a Python program to extract unquire dictionary values.
+Answer->
+dict_1 = {'learning': [5, 6, 7, 8],
+             'is': [10, 11, 7, 5],
+             'always': [6, 12, 10, 8],
+             'good': [1, 2, 5]}
+print("The original dictionary is : " + str(dict_1))
+res = list(sorted({ele for val in dict_1.values() for ele in val}))
+print("The unique values list is : " + str(res))
+ 
+Q91. Write a Python program to merge two dictionary.               
+Answer->
+dict_1 = {'a': 10, 'b':20 }
+dict_2 = {'c': 30, 'd': 40}
 
+print(dict_1 | dict_2)
 
+ OR              
+               
+def Merge(dict1, dict2):
+	return(dict2.update(dict1))
 
+dict1 = {'a': 10, 'b': 8}
+dict2 = {'d': 6, 'c': 4}
 
+print(Merge(dict1, dict2))
 
+print(dict2)
 
+Q92. Write a Python program to convert a list of tuples into dictionary.
 
+Input : [('Sachin', 10), ('MSD', 7), ('Kohli', 18), ('Rohit', 45)]
+Output : {'Sachin': 10, 'MSD': 7, 'Kohli': 18, 'Rohit': 45}
+Answer->               
+print(dict( [('Sachin', 10), ('MSD', 7), ('Kohli', 18), ('Rohit', 45)]))
 
+Q93. Write a Python program to create a list of tuples from given list having number and its cube in each tuple.
+Answer->
+list1 = [9,5,6]
+tupleList = [(val,(val*val*val)) for val in list1]
+print(str(tupleList))
+               
+Q94. Write a Python program to get all combinations of 2 tuples.               
+Answer->
+test_tuple1 = (7, 2)
+test_tuple2 = (7, 8)
 
+res = [(a, b) for a in test_tuple1 for b in test_tuple2]
+res = res + [(a, b) for a in test_tuple2 for b in test_tuple1]
 
+print("The Combination : ", str(res))
 
+Q95. Write a Python program to sort a list of tuples by second item.
+Input : [('452', 10), ('256', 5), ('100', 20), ('135', 15)]
+Output : [('256', 5), ('452', 10), ('135', 15), ('100', 20)]
+Answer->
+def Sort_Tuple(tup):
+     
+    lst = len(tup)
+    for i in range(0, lst):
+         
+        for j in range(0, lst-i-1):
+            if (tup[j][1] > tup[j + 1][1]):
+                temp = tup[j]
+                tup[j]= tup[j + 1]
+                tup[j + 1]= temp
+    return tup
+ 
+tup =[('452', 10), ('256', 5), ('100', 20), ('135', 15)]
+       
+print(Sort_Tuple(tup))              
 
+Q96. Write a python program to print below pattern.
 
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
 
+Answer->
+for i in range(1,6):
+    for j in range(i):
+        print("*",end="")
+    print("")   
+               
+Q97. Write a python program to print below pattern.
+    *
+   **
+  ***
+ ****
+*****
+Answer->
+def inverse_pattern():
+  n=5;i=0
+  while(i<=n):
+    print(" " * (n - i) +"*" * i)
+    i+=1
+inverse_pattern()
+               
+Q98. Write a python program to print below pattern.
+    * 
+   * * 
+  * * * 
+ * * * * 
+* * * * * 
+Answer-> def pattern(n):
+      k = 2 * n - 2
+      for i in range(0,n):
+           for j in range(0,k):
+               print(end=" ")
+           k = k - 1
+           for j in range(0, i+1):
+                print("*", end=" ")
+           print("\r")
+ 
+pattern(5)              
+               
+Q99. Write a python program to print below pattern.
+1 
+1 2 
+1 2 3 
+1 2 3 4 
+1 2 3 4 5 
+Answer->           
+for i in range(1,5):
+    for j in range(i+1):
+        j = j + 1
+        print(j,end="")
+    print("")                  
+Q100. Write a python program to print below pattern.
 
-
-
-
-
-
-
-
-
-
-
-
+A 
+B B 
+C C C 
+D D D D 
+E E E E E 
+Answer->               
+def patterns(n):  
+    x = 65 
+    for i in range(0,n):
+        ch = chr(x)
+        x +=1
+        for j in range(0,i+1):
+            print(ch,end="")  
+        print()     
+patterns(5)               
